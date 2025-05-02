@@ -1,0 +1,16 @@
+{
+  "audios": [
+    {
+      "id": 1,
+      "title": "karunakar",
+      "artist": "karunakar",
+      "url": "https://example.com"
+    },
+    {
+      "id": "5fb8",
+      "title": "asd",
+      "artist": "asd",
+      "url": "https://res.cloudinary.com/dqxlshkcy/video/upload/v1746179376/vn8tbpsxrylsotwhtqs2.mp3"
+    }
+  ]
+}

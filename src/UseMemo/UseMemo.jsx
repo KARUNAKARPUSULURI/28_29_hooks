@@ -1,29 +1,38 @@
 import React, { useMemo, useState } from 'react'
+import Child from './Child'
 
-//how does browser read jsx -> babel -> transpiler
-//0x100 -> count -> 0
-//0x101 -> count -> 1
+
+//useMemo(fn, [])
+//it is used to memoize functions results
+//150000
 const arr = []
-//1st render -> [f] //600 -> 
-// 2nd render -> [f, f] //700
-const Usememo = () => {
-  const [count, setCount] = useState(0)
-
-  const handleIncrement = () => {
-    setCount(count + 1)
+const UseMemo = () => {
+  const [count, setCount] = useState(0) //1
+  const [name, setName] = useState("karunakar")
+  function sumOfNumbers(){
+    console.log("am i re-rendering??")
+    let sum = 0 
+    for(let i = 0; i <= 100; i++){
+      sum += i
+    }
+    return sum
   }
-
-  arr.push(handleIncrement)
-  // console.log("arr", arr) //[f]
-  // console.log("comparing", arr[0] == arr[1]) //[f] == [f] => true ? "reuse" : "recreate"
-
+  const num = useMemo(()=> sumOfNumbers(), [name])
+  // const num = sumOfNumbers()
+  arr.push(num)
+  console.log(arr[0] == arr[1]) 
+  //1st render -> [f] -> 0x100 -> f == undefined
+  //2nd render -> [f, f] -> 0x200 -> f == f -> false
   return (
     <div>
+      <h3>Sum of numbers value : {num}</h3>
+      <h1>Counter : {count} - {name}</h1>
+      <button onClick={()=> setCount(count + 1)}>+</button>
+      <button onClick={()=> setName("Chaitanya")}>Change Name</button>
+      <Child />
 
-      <h1>Counter : {count}</h1>
-      <button onClick={handleIncrement}>Click</button>
     </div>
   )
 }
 
-export default Usememo
+export default UseMemo

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import "./App.css"
 import TodoList from "./TodoList";
 import UseEffect from "./useEffect/useEffect";
@@ -8,9 +8,16 @@ import Example from "./useContext/Example";
 import Button from "./useContext/Button";
 import UseMemo from "./UseMemo/UseMemo";
 import UseRef from "./UseRef/UseRef";
+import AudioUpload from "./Audio/Audio";
+import AudioList from "./Audio/AudioList";
+const Lazy = lazy(() => import("./Lazy/Lazy"))
+const Home = lazy(() => import("./Lazy/Home"))
+const Child = lazy(() => import("./Lazy/Child"))
+const UseReducer = lazy(() => import("./UseReducer/UseReducer"))
+const ImagePreview = lazy(() => import("./UseRef/ImagePreview"))
 const App = () => {
   const [color, setColor] = useState("red")
-
+  const [show, setShow] = useState(false)
   const [count, setCount] = useState(0);
   const [name, setName] = useState("karunakar")
   const [toggle, setToggle] = useState(false)
@@ -41,9 +48,29 @@ const App = () => {
   }
   return (
     <>
-      <UseRef />
+      <AudioUpload fetchAudios={() => {}}  />
+      <AudioList />
+      {/* <Suspense fallback={<div>Loading...</div>}>
+        <UseReducer />
+      </Suspense> */}
+      {/* <Suspense fallback={<div>Loading...</div>}>
+        <ImagePreview />
+      </Suspense> */}
+      {/* <Suspense fallback={<div>Loading...</div>}>
+        <Lazy />
+      </Suspense>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Home />
+      </Suspense>
+      {
+        show && <Suspense fallback = {<div>Loading...</div>}>
+          <Child />
+        </Suspense>
+      } */}
+      {/* // <button onClick={() => setShow(true)}>Click me to load the component</button> */}
+      {/* <UseRef /> */}
       {/* <UseMemo /> */}
-      {/* <myContext.Provider value={arr}>
+      {/* <myContext.Provider valkkkkkkkkkkkktue={arr}>
         <Parent />
       </myContext.Provider>
       <Example />

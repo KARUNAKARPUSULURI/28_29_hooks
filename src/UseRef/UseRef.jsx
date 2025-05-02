@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import video from "../assets/video.mp4"
+// import video from "../assets/video.mp4"
 const UseRef = () => {
     const [count, setCount] = useState(0)
     const [isTimer, setIsTimer] = useState(false)

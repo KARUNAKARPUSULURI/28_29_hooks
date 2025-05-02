@@ -128,7 +128,61 @@ what are keys in react js?
 
 todolist, calculator, weather app, e-commerce website, counter
 
+------------------------------------------------------------------------------
+
+Lazy loading: -
 
 
 
+loading = "lazy"
 
+lazy()
+
+
+suspense -> component -> >loading
+
+fallback
+
+
+
+UseReducer():-
+
+it is used when you have complex state logic
+
+action creators -> users, one who perform action
+actions -> triggering or clicking or making any action
+actionTypes -> type of action
+disptach -> sending
+reducer -> this is the for logic
+state -> data
+
+const reducerFunction = (state, action) => {
+    action == "deposit" ? state = state + amount
+}
+[state, disptach] = useReducer(reducer funtion, 0)
+
+
+<button></button>
+<button></button>
+<button></button>
+
+
+audio/*
+
+const [title, setTitle] = useState("")
+const handleUpload = (event) => {
+    event.preventDefault()
+}
+
+
+<form onSubmit = {handleUpload}>
+
+const fetchAudios = async()=>{
+    const response = await fetch("url")
+    const data = await response.json()
+    setAudio(data)
+}
+
+useEffect(()=>{
+    fetchAudios()
+},[])
