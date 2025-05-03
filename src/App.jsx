@@ -1,5 +1,4 @@
 import { lazy, Suspense, useState } from "react";
-import "./App.css"
 import TodoList from "./TodoList";
 import UseEffect from "./useEffect/useEffect";
 import { myContext, colorChangeContext } from "./useContext/Context";
@@ -10,6 +9,8 @@ import UseMemo from "./UseMemo/UseMemo";
 import UseRef from "./UseRef/UseRef";
 import AudioUpload from "./Audio/Audio";
 import AudioList from "./Audio/AudioList";
+import Gallery from "./Gallery/Gallery";
+import Header from "./Gallery/Header";
 const Lazy = lazy(() => import("./Lazy/Lazy"))
 const Home = lazy(() => import("./Lazy/Home"))
 const Child = lazy(() => import("./Lazy/Child"))
@@ -48,8 +49,10 @@ const App = () => {
   }
   return (
     <>
-      <AudioUpload fetchAudios={() => {}}  />
-      <AudioList />
+      <Header />
+      <Gallery />
+      {/* <AudioUpload fetchAudios={() => {}}  />
+      <AudioList /> */}
       {/* <Suspense fallback={<div>Loading...</div>}>
         <UseReducer />
       </Suspense> */}

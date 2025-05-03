@@ -177,6 +177,8 @@ const handleUpload = (event) => {
 
 <form onSubmit = {handleUpload}>
 
+const [audio, setAudio] = useState([])
+
 const fetchAudios = async()=>{
     const response = await fetch("url")
     const data = await response.json()
@@ -186,3 +188,23 @@ const fetchAudios = async()=>{
 useEffect(()=>{
     fetchAudios()
 },[])
+
+{
+    audio.length > 0 ? (
+        <>
+        {
+            audio.map((ele, index)=>{
+                return (
+                    <>
+                    <h1>{ele.title}</h1>
+                    <h1>{ele.artist}</h1>
+                    <audio src={ele.url} controls></audio>
+                    </>
+                )
+            })
+        }
+        </>
+    ) : (
+        <></>
+    )
+}
